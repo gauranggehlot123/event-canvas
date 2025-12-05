@@ -3,6 +3,7 @@ import { eventAtom } from '@/state/eventState';
 import { Calendar, MapPin, Clock, ImageIcon, Sparkles } from 'lucide-react';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
+import { ModulePreview } from './ModulePreview';
 
 export const EventPreviewCard = () => {
   const event = useRecoilValue(eventAtom);
@@ -103,6 +104,9 @@ export const EventPreviewCard = () => {
                   {event.description}
                 </p>
               )}
+              
+              {/* Module preview */}
+              <ModulePreview />
             </div>
 
             {/* Empty state message */}

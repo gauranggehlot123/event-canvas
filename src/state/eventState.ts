@@ -3,7 +3,7 @@ import { atom, selector } from 'recoil';
 // Types
 export interface EventModule {
   id: string;
-  type: 'rsvp' | 'poll' | 'text' | 'cohost';
+  type: 'rsvp' | 'poll' | 'text' | 'cohost' | 'gallery';
   config: Record<string, unknown>;
   order: number;
 }
