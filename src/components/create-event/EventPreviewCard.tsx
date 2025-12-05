@@ -14,10 +14,10 @@ export const EventPreviewCard = () => {
   return (
     <div className="sticky top-24 h-fit">
       {/* Card container with gradient border effect */}
-      <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-primary/50 via-accent/30 to-primary/20">
+      <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-primary/60 via-accent/40 to-primary/30 shadow-2xl shadow-primary/20">
         <div 
           className={cn(
-            "relative overflow-hidden rounded-2xl bg-card/80 backdrop-blur-xl transition-all duration-500",
+            "relative overflow-hidden rounded-2xl bg-card/60 backdrop-blur-2xl transition-all duration-500",
             event.backgroundUrl && "bg-cover bg-center"
           )}
           style={{

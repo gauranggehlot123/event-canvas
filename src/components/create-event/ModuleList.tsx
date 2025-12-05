@@ -216,8 +216,8 @@ export const ModuleList = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         className={cn(
-                          "border-border/60 bg-card/80 transition-shadow",
-                          snapshot.isDragging && "shadow-lg ring-2 ring-primary/20"
+                          "border-border/30 bg-card/50 backdrop-blur-md shadow-lg shadow-primary/5 transition-all duration-300",
+                          snapshot.isDragging && "shadow-xl ring-2 ring-primary/30 bg-card/70"
                         )}
                       >
                         <div className="p-3">

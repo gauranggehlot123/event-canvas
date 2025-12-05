@@ -17,7 +17,7 @@ export const EventForm = () => {
         <AutoSaveIndicator />
       </div>
       
-      <Card className="border-border/40 bg-card/60 backdrop-blur-lg p-6 space-y-6">
+      <Card className="border-border/30 bg-card/40 backdrop-blur-xl shadow-xl shadow-primary/5 p-6 space-y-6">
         <EventDetailsForm />
         
         <Separator className="bg-border/40" />
