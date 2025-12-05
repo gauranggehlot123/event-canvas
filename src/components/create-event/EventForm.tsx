@@ -4,6 +4,7 @@ import { EventDetailsForm } from './EventDetailsForm';
 import { FlyerUpload } from './FlyerUpload';
 import { BackgroundUpload } from './BackgroundUpload';
 import { QuickAddButtons } from './QuickAddButtons';
+import { CustomizeTrigger } from './CustomizeTrigger';
 
 export const EventForm = () => {
   return (
@@ -17,6 +18,10 @@ export const EventForm = () => {
       <Separator className="bg-border/40" />
       
       <BackgroundUpload />
+      
+      <Separator className="bg-border/40" />
+      
+      <CustomizeTrigger />
       
       <Separator className="bg-border/40" />
       
