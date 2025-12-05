@@ -1,7 +1,7 @@
 import { CreateEventHeader } from '@/components/create-event/CreateEventHeader';
 import { ProgressStepper } from '@/components/create-event/ProgressStepper';
 import { EventPreviewCard } from '@/components/create-event/EventPreviewCard';
-import { EventFormPlaceholder } from '@/components/create-event/EventFormPlaceholder';
+import { EventForm } from '@/components/create-event/EventForm';
 
 const CreateEvent = () => {
   return (
@@ -20,7 +20,7 @@ const CreateEvent = () => {
           
           {/* Right column: Form & Controls */}
           <div className="order-1 lg:order-2">
-            <EventFormPlaceholder />
+            <EventForm />
           </div>
         </div>
       </main>
