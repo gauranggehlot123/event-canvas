@@ -14,6 +14,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Eye, Rocket, Loader2, CheckCircle2, Copy } from 'lucide-react';
+import { EventPreviewDialog } from './EventPreviewDialog';
 
 export const EventActions = () => {
   const navigate = useNavigate();
@@ -24,13 +25,10 @@ export const EventActions = () => {
   const [isPublishing, setIsPublishing] = useState(false);
   const [publishedUrl, setPublishedUrl] = useState<string | null>(null);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const [showPreviewDialog, setShowPreviewDialog] = useState(false);
 
   const handlePreview = () => {
-    // For now, just show a toast - in production this would open a full preview
-    toast({
-      title: "Preview Mode",
-      description: "Full preview would open in a new tab",
-    });
+    setShowPreviewDialog(true);
   };
 
   const handleGoLive = async () => {
@@ -145,6 +143,12 @@ export const EventActions = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Preview Dialog */}
+      <EventPreviewDialog 
+        open={showPreviewDialog} 
+        onOpenChange={setShowPreviewDialog} 
+      />
     </>
   );
 };
