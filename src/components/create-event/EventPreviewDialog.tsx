@@ -42,7 +42,7 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
     switch (module.type) {
       case 'rsvp':
         return (
-          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-3">
+          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
             <div className="flex items-center gap-2">
               <Users className="h-5 w-5 text-primary" />
               <h3 className="font-semibold">RSVP</h3>
@@ -70,7 +70,7 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
         const question = (config.question as string) || 'What do you think?';
         const options = (config.options as string[]) || ['Option 1', 'Option 2'];
         return (
-          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-3">
+          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
             <div className="flex items-center gap-2">
               <BarChart3 className="h-5 w-5 text-primary" />
               <h3 className="font-semibold">Poll</h3>
@@ -93,7 +93,7 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
       case 'text':
         const content = (config.content as string) || 'Additional event information will appear here.';
         return (
-          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-2">
+          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
             <div className="flex items-center gap-2">
               <FileText className="h-5 w-5 text-primary" />
               <h3 className="font-semibold">Information</h3>
@@ -107,7 +107,7 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
       case 'cohost':
         const email = (config.email as string) || 'Co-host';
         return (
-          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-2">
+          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
             <div className="flex items-center gap-2">
               <UserPlus className="h-5 w-5 text-primary" />
               <h3 className="font-semibold">Co-hosted by</h3>
@@ -123,7 +123,7 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
 
       case 'gallery':
         return (
-          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-2">
+          <Card className="border-border/30 bg-card/50 backdrop-blur-md p-4 space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
             <div className="flex items-center gap-2">
               <Image className="h-5 w-5 text-primary" />
               <h3 className="font-semibold">Photo Gallery</h3>
