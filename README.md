@@ -1,73 +1,99 @@
-# Welcome to your Lovable project
+# Letshang - Event Creation Platform
 
-## Project info
+A modern, responsive event creation platform built with React, TypeScript, and Tailwind CSS. Create beautiful event pages with real-time preview, drag-and-drop modules, and seamless customization.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **Two-Column Layout**: Live preview card on the left, form controls on the right for instant visual feedback
+- **Drag & Drop Modules**: Reorder event components (RSVP, Polls, Gallery, Co-hosts, Text Blocks)
+- **Real-time Preview**: See changes instantly as you fill out the form
+- **Auto-Save**: Automatic saving every 30 seconds with visual indicators
+- **Media Uploads**: Support for event flyers and custom backgrounds
+- **Progress Tracking**: Visual stepper showing completion status
+- **Mobile Responsive**: Optimized for all screen sizes
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first styling
+- **shadcn/ui** - Component library
+- **Recoil** - State management
+- **@hello-pangea/dnd** - Drag and drop
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ 
+- npm or bun
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd letshang
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/
+│   ├── create-event/     # Event creation components
+│   │   ├── EventForm.tsx
+│   │   ├── EventPreviewCard.tsx
+│   │   ├── ModuleList.tsx
+│   │   └── ...
+│   └── ui/               # Reusable UI components (shadcn)
+├── hooks/
+│   ├── useAutoSave.ts    # Auto-save functionality
+│   └── use-mobile.tsx    # Mobile detection
+├── pages/
+│   ├── CreateEvent.tsx   # Main event creation page
+│   └── Index.tsx         # Landing page
+├── state/
+│   ├── eventState.ts     # Recoil atoms & selectors
+│   └── mockApi.ts        # Mock API for development
+└── lib/
+    └── utils.ts          # Utility functions
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Key Architecture Decisions
 
-## What technologies are used for this project?
+- **Recoil State Management**: Granular atoms for event details, modules, and UI state with selectors for derived data
+- **Mock API Pattern**: Simulated async operations that can be swapped for real backend with minimal changes
+- **CSS Custom Properties**: Theming via CSS variables for easy customization
+- **Modular Components**: Backend-configurable module system for extensibility
 
-This project is built with:
+## Scripts
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint
+```
 
-## How can I deploy this project?
+## Documentation
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+See the [docs/](./docs) folder for additional documentation:
+- [Presentation Script](./docs/presentation-script.md) - Detailed walkthrough and evaluation
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+MIT
