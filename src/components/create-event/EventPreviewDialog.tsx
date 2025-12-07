@@ -152,7 +152,7 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto border-border/30 bg-background/95 backdrop-blur-xl">
-        <DialogHeader>
+        <DialogHeader className="animate-fade-in">
           <DialogTitle className="flex items-center gap-2 text-sm font-normal text-muted-foreground">
             <Badge variant="secondary">Preview Mode</Badge>
             This is how guests will see your event
@@ -163,32 +163,43 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
           {/* Event Hero Section */}
           <div 
             className={cn(
-              "relative rounded-xl overflow-hidden",
+              "relative rounded-xl overflow-hidden animate-fade-in",
               event.backgroundUrl ? "bg-cover bg-center" : "bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5"
             )}
             style={{
               backgroundImage: event.backgroundUrl ? `url(${event.backgroundUrl})` : undefined,
+              animationDelay: '100ms',
+              animationFillMode: 'both',
             }}
           >
             <div className="p-6 space-y-4 bg-gradient-to-t from-background/90 to-transparent">
               {/* Flyer */}
               {event.flyerUrl && (
-                <div className="w-full max-w-xs mx-auto">
+                <div 
+                  className="w-full max-w-xs mx-auto animate-scale-in"
+                  style={{ animationDelay: '200ms', animationFillMode: 'both' }}
+                >
                   <img 
                     src={event.flyerUrl} 
                     alt="Event flyer" 
-                    className="w-full rounded-lg shadow-xl"
+                    className="w-full rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02]"
                   />
                 </div>
               )}
 
               {/* Event Title */}
-              <h1 className="text-2xl md:text-3xl font-bold text-center">
+              <h1 
+                className="text-2xl md:text-3xl font-bold text-center animate-fade-in"
+                style={{ animationDelay: '150ms', animationFillMode: 'both' }}
+              >
                 {event.title || 'Your Event Title'}
               </h1>
 
               {/* Event Details */}
-              <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <div 
+                className="flex flex-wrap justify-center gap-4 text-sm animate-fade-in"
+                style={{ animationDelay: '200ms', animationFillMode: 'both' }}
+              >
                 {event.date && (
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <CalendarDays className="h-4 w-4 text-primary" />
@@ -213,7 +224,10 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
 
           {/* Description */}
           {event.description && (
-            <div className="space-y-2">
+            <div 
+              className="space-y-2 animate-fade-in"
+              style={{ animationDelay: '250ms', animationFillMode: 'both' }}
+            >
               <h2 className="font-semibold">About this event</h2>
               <p className="text-sm text-muted-foreground whitespace-pre-wrap">
                 {event.description}
@@ -226,18 +240,30 @@ export const EventPreviewDialog = ({ open, onOpenChange }: EventPreviewDialogPro
             <>
               <Separator className="bg-border/40" />
               <div className="space-y-4">
-                {sortedModules.map((module) => (
-                  <div key={module.id}>{renderModule(module)}</div>
+                {sortedModules.map((module, index) => (
+                  <div 
+                    key={module.id}
+                    className="animate-fade-in"
+                    style={{ 
+                      animationDelay: `${300 + index * 100}ms`,
+                      animationFillMode: 'both'
+                    }}
+                  >
+                    {renderModule(module)}
+                  </div>
                 ))}
               </div>
             </>
           )}
         </div>
 
-        <div className="pt-4 border-t border-border/30">
+        <div 
+          className="pt-4 border-t border-border/30 animate-fade-in"
+          style={{ animationDelay: `${300 + sortedModules.length * 100}ms`, animationFillMode: 'both' }}
+        >
           <Button 
             onClick={() => onOpenChange(false)} 
-            className="w-full"
+            className="w-full transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
           >
             Back to Editing
           </Button>
