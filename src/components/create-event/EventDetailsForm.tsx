@@ -6,7 +6,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Calendar as CalendarIcon, Clock, MapPin, Type } from 'lucide-react';
+import { TimePicker } from '@/components/ui/time-picker';
+import { Calendar as CalendarIcon, MapPin, Type } from 'lucide-react';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 
@@ -69,17 +70,11 @@ export const EventDetailsForm = () => {
 
         {/* Time Input */}
         <div className="space-y-2">
-          <Label htmlFor="time">Time *</Label>
-          <div className="relative">
-            <Clock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              id="time"
-              type="time"
-              value={event.time}
-              onChange={(e) => updateField('time', e.target.value)}
-              className="pl-10 bg-background/50"
-            />
-          </div>
+          <Label>Time *</Label>
+          <TimePicker
+            value={event.time}
+            onChange={(time) => updateField('time', time)}
+          />
         </div>
       </div>
 
