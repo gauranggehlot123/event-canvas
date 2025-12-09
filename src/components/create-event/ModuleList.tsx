@@ -14,25 +14,30 @@ import {
   FileText, 
   UserPlus,
   Image,
+  Link2,
   Plus,
   X
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const moduleIcons: Record<EventModule['type'], React.ComponentType<{ className?: string }>> = {
+  capacity: Users,
+  gallery: Image,
+  links: Link2,
   rsvp: Users,
   poll: BarChart3,
   text: FileText,
   cohost: UserPlus,
-  gallery: Image,
 };
 
 const moduleLabels: Record<EventModule['type'], string> = {
+  capacity: 'Capacity',
+  gallery: 'Photo Gallery',
+  links: 'Links',
   rsvp: 'RSVP Form',
   poll: 'Poll',
   text: 'Text Block',
   cohost: 'Co-Host',
-  gallery: 'Gallery',
 };
 
 interface ModuleConfigProps {

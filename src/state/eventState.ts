@@ -3,16 +3,18 @@ import { atom, selector } from 'recoil';
 // Types
 export interface EventModule {
   id: string;
-  type: 'rsvp' | 'poll' | 'text' | 'cohost' | 'gallery';
+  type: 'capacity' | 'gallery' | 'links' | 'rsvp' | 'poll' | 'text' | 'cohost';
   config: Record<string, unknown>;
   order: number;
 }
 
 export interface EventData {
+  phoneNumber: string;
   title: string;
   date: Date | null;
   time: string;
   location: string;
+  costPerPerson: string;
   description: string;
   flyerUrl: string | null;
   backgroundUrl: string | null;
@@ -22,10 +24,12 @@ export interface EventData {
 export const eventAtom = atom<EventData>({
   key: 'eventAtom',
   default: {
+    phoneNumber: '',
     title: '',
     date: null,
     time: '',
     location: '',
+    costPerPerson: '',
     description: '',
     flyerUrl: null,
     backgroundUrl: null,
@@ -48,6 +52,7 @@ export const isFormValidSelector = selector({
   get: ({ get }) => {
     const event = get(eventAtom);
     return !!(
+      event.phoneNumber.trim() &&
       event.title.trim() &&
       event.date &&
       event.time &&

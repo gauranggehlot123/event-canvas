@@ -7,16 +7,10 @@ import { QuickAddButtons } from './QuickAddButtons';
 import { CustomizeTrigger } from './CustomizeTrigger';
 import { ModuleList } from './ModuleList';
 import { EventActions } from './EventActions';
-import { AutoSaveIndicator } from './AutoSaveIndicator';
 
 export const EventForm = () => {
   return (
     <div className="space-y-4">
-      {/* Auto-save indicator */}
-      <div className="flex justify-end">
-        <AutoSaveIndicator />
-      </div>
-      
       <Card className="border-border/30 bg-card/40 backdrop-blur-xl shadow-xl shadow-primary/5 p-6 space-y-6">
         <EventDetailsForm />
         
@@ -30,11 +24,11 @@ export const EventForm = () => {
         
         <Separator className="bg-border/40" />
         
-        <CustomizeTrigger />
+        <QuickAddButtons />
         
         <Separator className="bg-border/40" />
         
-        <QuickAddButtons />
+        <CustomizeTrigger />
         
         {/* Module list with drag/drop */}
         <ModuleList />
