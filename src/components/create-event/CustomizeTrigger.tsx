@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { modulesAtom } from '@/state/eventState';
 import { CustomizationDrawer } from './CustomizationDrawer';
-import { Megaphone, Dice5, Sparkles, Palette, ChevronRight } from 'lucide-react';
+import { Megaphone, Grid3X3, Users, Link, Image, ClipboardList, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const icons = [
   { Icon: Megaphone, label: 'Announce' },
-  { Icon: Dice5, label: 'Games' },
-  { Icon: Sparkles, label: 'Effects' },
-  { Icon: Palette, label: 'Style' },
+  { Icon: Grid3X3, label: 'Grid' },
+  { Icon: Users, label: 'People' },
+  { Icon: Link, label: 'Links' },
+  { Icon: Image, label: 'Photos' },
+  { Icon: ClipboardList, label: 'RSVP' },
 ];
 
 export const CustomizeTrigger = () => {
@@ -30,18 +32,18 @@ export const CustomizeTrigger = () => {
           )}
         >
           <div className="flex items-center justify-between">
-            {/* Icon row */}
-            <div className="flex items-center gap-3">
+            {/* Icon row - 6 icons per Figma */}
+            <div className="flex items-center gap-2">
               {icons.map(({ Icon, label }, index) => (
                 <div
                   key={label}
                   className={cn(
-                    "p-2.5 rounded-lg bg-muted/50 transition-transform duration-200",
+                    "p-2 rounded-lg bg-muted/50 transition-transform duration-200",
                     "group-hover:scale-105"
                   )}
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <Icon className="h-5 w-5 text-primary" />
+                  <Icon className="h-4 w-4 text-primary" />
                 </div>
               ))}
             </div>

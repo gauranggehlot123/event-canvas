@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { TimePicker } from '@/components/ui/time-picker';
-import { Calendar as CalendarIcon, MapPin, Type } from 'lucide-react';
+import { Calendar as CalendarIcon, MapPin, Phone, DollarSign } from 'lucide-react';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 
@@ -20,14 +20,25 @@ export const EventDetailsForm = () => {
 
   return (
     <div className="space-y-5">
-      <h3 className="text-lg font-semibold flex items-center gap-2">
-        <Type className="h-5 w-5 text-primary" />
-        Event Details
-      </h3>
-
-      {/* Title */}
+      {/* Phone Number - First field per Figma */}
       <div className="space-y-2">
-        <Label htmlFor="title">Event Title *</Label>
+        <Label htmlFor="phoneNumber">Phone number to save draft</Label>
+        <div className="relative">
+          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            id="phoneNumber"
+            type="tel"
+            placeholder="Enter your phone number"
+            value={event.phoneNumber}
+            onChange={(e) => updateField('phoneNumber', e.target.value)}
+            className="pl-10 bg-background/50"
+          />
+        </div>
+      </div>
+
+      {/* Event Name - Styled as heading per Figma */}
+      <div className="space-y-2">
+        <h3 className="text-lg font-semibold">Name your event</h3>
         <Input
           id="title"
           placeholder="Give your event a name"
@@ -90,6 +101,22 @@ export const EventDetailsForm = () => {
             onChange={(e) => updateField('location', e.target.value)}
             className="pl-10 bg-background/50"
             maxLength={200}
+          />
+        </div>
+      </div>
+
+      {/* Cost per person */}
+      <div className="space-y-2">
+        <Label htmlFor="costPerPerson">Cost per person</Label>
+        <div className="relative">
+          <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            id="costPerPerson"
+            type="text"
+            placeholder="0.00"
+            value={event.costPerPerson}
+            onChange={(e) => updateField('costPerPerson', e.target.value)}
+            className="pl-10 bg-background/50"
           />
         </div>
       </div>
